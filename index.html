@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Doctors Without Borders</title>
+	<link rel="stylesheet" href="assets/css/style.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<header class="header-landing-page">
+		<div class="background-player" id="background-player">
+			<div id="player"></div>
+		</div>
+		<figure class="logo-msf">
+			<img src="assets/images/header_msf_logo.png" alt="Doctors Without Borders">
+		</figure>
+	</header>
+	<main>
+		<section id="wrap" class="container">
+			
+			<div class="container-forms">
+
+				<h2>Donate</h2>
+				
+				<div class="forms">
+					<button class="btn-form current" data-gift-class="one-time" onclick="changeBox(this)">One-Time</button>
+					<button class="btn-form" data-gift-class="monthly"  onclick="changeBox(this)">Monthly</button>
+					<form action="#">
+
+							<div class="gift-box disabled monthly" id="monthly">
+								<label for="gift_amount" class="gift-amount title-label">
+									<span>Monthly gift:</span>
+								</label>
+									<input type="radio" data-box="ten-dollars" value="10" id="ten_donation" name="gift_amount" onchange="msgBox(this)">
+									<label for="ten_donation"><span class="currency-symbol">U$</span>10,00</label>	
+									<input type="radio" data-box="fifteen-dollars" value="15" id="fifteen_donation" name="gift_amount" onchange="msgBox(this)">
+									<label for="fifteen_donation"><span class="currency-symbol">U$</span>15,00</label>
+									<input type="radio" data-box="thirty-dollars" value="30" id="thirty_donation" name="gift_amount" onchange="msgBox(this)">
+									<label for="thirty_donation"><span class="currency-symbol">U$</span>30,00</label>
+									<input type="radio" data-box="sixty-dollars" value="60" id="sixty_donation" name="gift_amount" onchange="msgBox(this)">
+									<label for="sixty_donation"><span class="currency-symbol">U$</span>60,00</label>
+								
+							</div>
+							
+							<div class="gift-box one-time" id="one-time">
+								<label for="gift_amount" class="gift-amount title-label">
+									<span>One time gift:</span>
+								</label>
+								<input type="range" min="0" max="1000" value="500" id="slide-qtty"  oninput="outputUpdate(value)" class="range-slide">
+								<div class="one-time-gift">
+									<span class="dolar-symbol currency-symbol">U$:</span><input type="tel" value="500" id="gift_amount" name="gift_amount" class="inputs-fill input-gift" onkeyup="inputUpdate(this.value)" />
+								</div>
+							</div>
+								
+							
+							<label for="first_name" class="first-name text-label">
+								<input type="text" name="first_name" id="first_name" onblur="checkFill(this)">
+								<span>First Name:</span> 
+							</label>
+							<label for="last_name" class="text-label">
+								<input type="text" name="last_name" id="last_name" onblur="checkFill(this)">
+								<span>Last Name:</span>
+							</label>
+							<label for="address_1" class="text-label">
+								<input type="text" name="address_1" onblur="checkFill(this)">
+								<span>Address 1:</span>
+							</label>
+							<label for="address_apt" class="text-label">
+								<input type="text" name="address_apt" onblur="checkFill(this)">
+								<span>Apt, Suite, Bldg</span>
+							</label>
+							<label for="city" class="text-label">
+								<input type="text" name="city" id="city" onblur="checkFill(this)">
+								<span>City:</span>
+							</label>
+							<label for="country" class="text-label">
+								<input type="text" name="country" id="country" onblur="checkFill(this)">
+								<span>Country:</span>
+							</label>
+							<label for="State" class="text-label">
+								<input type="text" name="state" id="state" onblur="checkFill(this)">
+								<span>State:</span>
+							</label>
+							<label for="zip" class="text-label">
+								<input type="text" name="zip" onblur="checkFill(this)">
+								<span>Zipcode:</span>
+							</label>
+
+							<label for="email" class="text-label">
+								<input type="email" name="email" id="email" onblur="checkFill(this)">
+								<span>Email:</span>
+							</label>
+							<label for="phone" class="text-label">
+								<input type="tel" name="phone" id="phone" onblur="checkFill(this)">
+								<span>Phone:</span>
+							</label>
+							<h3>Payment</h3>
+								<h4>Credit Card</h4>
+								<div class='payment'>
+									<label for="number" class="text-label">
+								 		<input type="text" name="number" onblur="checkFill(this)">
+										<span>Number:</span>
+								 	</label>
+								 	<label for="name" class="text-label">	
+								    	<input type="text" name="name" onblur="checkFill(this)">
+								    	<span>Name:</span>
+								 	</label>
+								 	
+								    <label for="expiry" class="text-label"> 
+								    	<input type="text" name="expiry" onblur="checkFill(this)">
+								    	<span>Expiry:</span>
+								    </label>
+								   
+								    <label for="cvc" class="text-label">
+								    	<input type="text" name="cvc" class="cvc" maxlength="3" onblur="checkFill(this)">
+								    	<span>CVC:</span>
+								    </label>
+								 </div>
+
+							<div class='card'></div>
+
+							<button class="btn-donate" value="submit">Donate</button>
+					</form>
+				</div>
+				<div class="tab-monthly ten-dollars">
+					<h3>U$ 10,00</h3>
+				 	<p><strong>Can purchase...</strong><br> lifesaving treatment for ten young children suffering from malaria</p>
+				</div>               
+				<div class="tab-monthly fifteen-dollars">
+					<h3>U$ 15,00</h3>
+				 	<p><strong>Can purchase...</strong><br>a month of clean water for eight refugee families</p>
+				</div>
+				<div class="tab-monthly thirty-dollars">
+					<h3>U$ 30,00</h3>
+				 	<p><strong>Can purchase... </strong><br>a month of therapeutic food to treat a severely malnourished child</p>
+				</div>
+				<div class="tab-monthly sixty-dollars">
+					<h3>U$ 60,00</h3>
+				 	<p><strong>Can purchase...</strong> <br>	supplies to make 8	emergency burn dressings in a conflict or disaster</p>
+				</div>
+			</div>
+			<div class="help-us">
+				<h1>Help us: Make a donation</h1>
+			</div>
+			<div class="container container-content">
+				<h2> How your donation is used</h2>
+				<canvas id="donationChart" class="donationChart" height="150"></canvas>
+			</div>
+
+		</section>
+		<section class="other-ways">
+			<div class="container">
+				<h2> <i class="fa fa-info-circle" aria-hidden="true"></i> About Us</h2>
+				<p>We are Doctors Without Borders/Médecins Sans Frontières (MSF). We help people worldwide where the need is greatest, delivering emergency medical aid to people affected by conflict, epidemics, disasters, or exclusion from health care. </p>
+
+
+				<div class="history-video">
+					
+					<h3><i class="fa fa-users" aria-hidden="true"></i> Our History</h3>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/z8ahUwgaf08" frameborder="0" allowfullscreen></iframe>	
+				</div>
+
+				<h3>MSF Charter</h3>
+				<p>Doctors Without Borders/Médecins Sans Frontières (MSF) is a private, international association. The association is made up mainly of doctors and health sector workers and is also open to all other professions which might help in achieving its aims. All of its members agree to honor the following principles:<br>
+
+				MSF provides assistance to populations in distress, to victims of natural or man-made disasters, and to victims of armed conflict. They do so irrespective of race, religion, creed, or political convictions.<br>
+
+				MSF observes neutrality and impartiality in the name of universal medical ethics and the right to humanitarian assistance and claims full and unhindered freedom in the exercise of its functions.<br>
+
+				Members undertake to respect their professional code of ethics and maintain complete independence from all political, economic, or religious powers.<br>	
+
+				As volunteers, members understand the risks and dangers of the missions they carry out and make no claim for themselves or their assigns for any form of compensation other than that which the association might be able to afford them.</p>
+
+				<h3>Our Principles</h3>
+				<p>MSF’s actions are guided by medical ethics and the principles of independence and impartiality.</p>
+
+				<h3>Medical Ethics</h3>
+
+				<p>MSF’s actions are first and foremost medical. We carry out our work with respect for the rules of medical ethics, in particular the duty to provide care without causing harm to individuals or groups. We respect patients’ autonomy, patient confidentiality, and their right to informed consent. We treat our patients with dignity, and with respect for their cultural and religious beliefs. In accordance with these principles, MSF endeavors to provide high-quality medical care to all patients. </p>
+
+				<h3>Independence</h3>
+
+				<p>Our decision to offer assistance in any country or crisis is based on an independent assessment of people’s needs. We strive to ensure that we have the power to freely evaluate medical needs, to access populations without restriction, and to directly control the aid we provide. Our independence is facilitated by our policy to allow only a marginal portion of our funds to come from governments and intergovernmental organizations.</p>
+
+				<h3>Impartiality and Neutrality</h3>
+
+				<p>MSF offers assistance to people based on need and irrespective of race, religion, gender, or political affiliation. We give priority to those in the most serious and immediate danger. Our decisions are not based on political, economic, or religious interests. MSF does not take sides or intervene according to the demands of governments or warring parties.</p>
+
+				<h3>Bearing Witness</h3>
+
+				<p>The principles of impartiality and neutrality are not synonymous with silence. When MSF witnesses extreme acts of violence against individuals or groups, the organization may speak out publicly. We may seek to bring attention to extreme need and unacceptable suffering when access to lifesaving medical care is hindered, when medical facilities come under threat, when crises are neglected, or when the provision of aid is inadequate or abused.</p>
+
+				<h3>Accountability</h3>
+
+				<p>MSF is committed to regularly evaluating the effects of its activities. We assume the responsibility of accounting for our actions to our patients and donors.</p>
+			</div>
+		</section>
+	</main>
+	<script src="assets/js/card.js"></script>
+	<script src="assets/js/chart.js"></script>
+	<script src="assets/js/main.min.js"></script>
+	
+</body>
+</html>
